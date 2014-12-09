@@ -1,0 +1,72 @@
+<style>
+body
+  {
+    background-color: #A9E2F3;
+
+  }
+  </style>
+
+
+<style type="text/css">
+    h1
+    {
+        position: absolute;
+        top: 5%;
+        left: 30%;
+        color: red;
+
+    }
+    
+   
+</style>
+<body>
+<img src="/assets/blood1.jpeg">
+</body>
+
+
+
+<h1> Please enter your Details </h1>
+<% if flash[:error] %>
+  <div class="error"><%= flash[:error] %></div>
+
+<% end %>
+<br>
+<br>
+<br><br>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<%= form_for @recipient do |f| %>
+<table>
+	<tr>
+		<td>  Name </td>
+		<td> <%= f.text_field :name %> </td>
+	</tr>
+   
+    <tr>
+        <td>  Address </td>
+        <td> <%= f.text_field :address %> </td>
+    </tr>
+    <tr>
+        <td>  Location </td>
+        <td> <%= f.text_field :location %> </td>
+    </tr>
+    <tr>
+        <td>  Hospital Name </td>
+        <td> <%= f.text_field :hospital_name %> </td>
+    </tr>
+    <tr>
+        <td>  Phone Number</td>
+        <td> <%= f.text_field :ph_number %> </td>
+    </tr>
+    <tr>
+        <td>  Email </td>
+        <td> <%= f.text_field :email %> </td>
+    </tr>
+</table>
+<%= f.submit %>
+<% end %>
+<%= button_to"Back", homes_path,:method=>"get" %><br>

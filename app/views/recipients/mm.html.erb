@@ -1,0 +1,73 @@
+<h1> Showing Recipient Details </h1>
+
+
+
+
+ <table class="gridtable">
+  <tr>
+    <th>  Name </th>
+    <th> Address </th>
+    <th> Location</th>
+    <th> Hospital name</th>
+    <th> Phone number</th>
+    <th> Email</th>
+    <th>Action</th>
+  </tr>
+  
+
+
+  <% @recipients.each do |d| %>
+  
+  <tr>
+     <td> <%= d.name %></td>
+    <td> <%= d.address %></td>
+    <td> <%= d.location %></td>
+    
+    <td> <%= d.hospital_name %></td>
+    <td> <%= d.ph_number %></td>
+    
+    <td> <%= d.email %></td>
+
+    <td><%= link_to "Delete", recipient_path(d), method: :delete, data: { confirm:  "Are you sure!" }%></td>
+    <td><%= link_to "Show", recipient_path(d) %></td>
+
+    
+    
+  </tr>
+  <% end %>
+</table>
+<!-- CSS goes in the document HEAD or added to your external stylesheet -->
+<style type="text/css">
+table.gridtable {
+  font-family: verdana,arial,sans-serif;
+  font-size:11px;
+  color:#333333;
+  border-width: 1px;
+  border-color: #666666;
+  border-collapse: collapse;
+}
+table.gridtable th {
+  border-width: 1px;
+  padding: 8px;
+  border-style: solid;
+  border-color: #666666;
+  background-color: #dedede;
+}
+table.gridtable td {
+  border-width: 1px;
+  padding: 8px;
+  border-style: solid;
+  border-color: #666666;
+  background-color: #ffffff;
+}
+</style>
+
+
+<% if admin_signed_in? %>
+  <p>Welcome </p>
+  <%= link_to 'ADMIN', new_admin_path, :method => "get" %>
+
+<% end %>
+
+
+

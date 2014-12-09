@@ -1,0 +1,96 @@
+
+<style>
+body
+  {
+    background-color: #A9E2F3;
+
+  }
+  </style>
+
+<h1>Which Donor details ur willing to search ?</h1>
+
+<%= form_tag do %>
+
+<div class="form-group1" id="byname">
+<%= select_tag "option_for_donors", options_from_collection_for_select(BloodGroup.all,"blood_type","blood_type"), {prompt: "Search by blood group"} %>
+<%#= submit_tag%>
+</div>
+<%end%>
+
+ <table class="gridtable">
+  <tr>
+  <th> First Name </th>
+    <th> Last Name</th>
+    
+    <th> Gender </th>
+    <th> Address </th>
+    <th> Location</th>
+    <th> Age</th>
+    <th> Phone number</th>
+    
+    <th> Blood Group</th>
+    <th>Action</th>
+  </tr>
+  
+
+
+  <% @donors.each do |d| %>
+  
+  <tr>
+  <td> <%= d.firstname %></td>
+    <td> <%= d.lastname %></td>
+    <td> <%= d.gender %></td>
+    <td> <%= d.address %></td>
+    <td> <%= d.location %></td>
+    <td> <%= d.age %></td>
+    <td> <%= d.ph_number %></td>
+    
+    <td> <%= d.blood_group %></td>
+    <td><%= link_to "Show", donor_path(d) %></td>
+
+    
+    
+  </tr>
+  <% end %>
+</table>
+<%= button_to"Back", new_recipient_path,:method=>"get" %><br>
+<!-- CSS goes in the document HEAD or added to your external stylesheet -->
+<style type="text/css">
+table.gridtable {
+  font-family: verdana,arial,sans-serif;
+  font-size:11px;
+  color:#333333;
+  border-width: 1px;
+  border-color: #666666;
+  border-collapse: collapse;
+}
+table.gridtable th {
+  border-width: 1px;
+  padding: 8px;
+  border-style: solid;
+  border-color: #666666;
+  background-color: #dedede;
+}
+table.gridtable td {
+  border-width: 1px;
+  padding: 8px;
+  border-style: solid;
+  border-color: #666666;
+  background-color: #ffffff;
+}
+</style>
+
+<script type="text/javascript">
+$(document).ready(function() {
+$("#option_for_donors").change(function(){
+var bg = $(this).val();
+//alert(bg)
+$.ajax({
+type: "GET",
+url: "/recipients/show?bg="+bg
+}).done(function() {
+ window.location.reload();
+});
+});
+});
+</script>

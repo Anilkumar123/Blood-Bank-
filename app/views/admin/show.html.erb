@@ -1,0 +1,53 @@
+<style>
+body
+  {
+    background-color: #A9E2F3;
+
+  }
+  </style>
+
+<h1>Recipient  Details</h1> 
+
+
+
+
+
+<p>
+   <strong> Name:</strong>
+   <%= @recipient.name %>
+</p>
+<p>
+   <strong>Address:</strong>
+   <%= @recipient.address %>
+</p>
+<p>
+   <strong>Location:</strong>
+   <%= @recipient.location %>
+</p>
+<p>
+   <strong>Hospital Name:</strong>
+   <%= @recipient.hospital_name %>
+</p>
+
+
+<p>
+   <strong>Phone number:</strong>
+   <%= @recipient.ph_number %>
+</p>
+<p>
+   <strong>Email:</strong>
+   <%= @recipient.email %>
+</p>
+
+
+<style>
+    h1
+    {
+      position: relative;
+      top: 25%;
+      left: 15%;
+      right: 45%;
+      color: #FA58AC;
+    }
+</style>
+<%= button_to"Back", admin_index_path,:method=>"get" %><br>

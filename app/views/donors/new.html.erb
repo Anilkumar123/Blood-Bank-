@@ -1,0 +1,79 @@
+
+
+
+
+<style>
+body
+  {
+    background-color: #A9E2F3;
+
+  }
+  </style>
+
+<body>
+<img src="/assets/blood6.jpeg">
+</body>
+<style>
+    .notice{
+        color:#3ABf00;
+    }
+     h1
+    {
+        position: relative;
+        top: 25%;
+        left: 35%;
+        right: 45%;
+        color: blue;
+    }
+</style>
+
+
+<h1> Please enter your Details </h1>
+
+<% if flash[:notice] %>
+  <div class="notice"><%= flash[:notice] %></div>
+<% end %>
+<% if flash[:error] %>
+  <div class="error"><%= flash[:error] %></div>
+<% end %>
+
+<%= form_for @donor do |f| %>
+<table >
+	<tr>
+		<td> First Name </td>
+		<td> <%= f.text_field :firstname %> </td>
+	</tr>
+    <tr>
+        <td> Last Name </td>
+        <td> <%= f.text_field :lastname %> </td>
+    </tr>
+    <tr>
+        <td>  Gender </td>
+        <td> <%= f.radio_button :gender, "Male"%> Male</td>
+        <td> <%= f.radio_button :gender, "Female"%> Female</td>
+    </tr>
+    <tr>
+        <td>  Address </td>
+        <td> <%= f.text_area :address %> </td>
+    </tr>
+    <tr>
+        <td>  Location </td>
+        <td> <%= f.text_field :location %> </td>
+    </tr>
+    <tr>
+        <td>  Age </td>
+        <td> <%= f.text_field :age %> </td>
+    </tr>
+    <tr>
+        <td>  Phone Number</td>
+        <td> <%= f.number_field :ph_number %> </td>
+    </tr>
+    <tr>
+        <td>  Blood Group </td>
+        <td> <%= collection_select(:donor, :blood_group, BloodGroup.all, :blood_type, :blood_type) %> </td>
+    </tr>
+</table>
+<%= f.submit "submit" %>
+<% end %>
+<%= button_to"Back", homes_path,:method=>"get" %><br>
+

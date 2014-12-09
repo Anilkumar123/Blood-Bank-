@@ -1,0 +1,66 @@
+<style>
+body
+  {
+    background-color: #A9E2F3;
+
+  }
+  </style>
+
+<body>
+<img src="/assets/blood4.jpeg">
+</body>
+
+
+<h1>Donor Details</h1> 
+
+
+
+
+
+<p>
+   <strong>First Name:</strong>
+   <%= @donor.firstname %>
+</p>
+<p>
+   <strong>Last Name:</strong>
+   <%= @donor.lastname %>
+</p>
+<p>
+   <strong>Gender:</strong>
+   <%= @donor.gender %>
+</p>
+<p>
+   <strong>Address:</strong>
+   <%= @donor.address %>
+</p>
+<p>
+   <strong>Location:</strong>
+   <%= @donor.location %>
+</p>
+<p>
+   <strong>Age:</strong>
+   <%= @donor.age %>
+</p>
+<p>
+   <strong>Phone number:</strong>
+   <%= @donor.ph_number %>
+</p>
+<p>
+   <strong>Blood Group:</strong>
+   <%= @donor.blood_group %>
+</p>
+
+
+
+
+<style>
+    h1
+    {
+      position: relative;
+      top: 25%;
+      left: 15%;
+      right: 45%;
+      color: #FA58AC;
+    }
+</style>
+<%= button_to"Back", new_donor_path,:method=>"get" %><br>

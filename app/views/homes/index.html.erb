@@ -1,0 +1,57 @@
+<body>
+<img src="/assets/bl.jpeg">
+</body>
+<style>
+body
+  {
+    background-color: #A9E2F3;
+
+  }
+  </style>
+
+
+<h1>Blood Bank Management System</h1>
+
+<br>
+<br>
+<br>
+<br><br>
+<br><br>
+<br>
+<%= button_to"Admin Login",  new_admin_session_path, :method=>"get"%><br>
+<% if admin_signed_in? %>
+  <p>Welcome </p>
+  <%= link_to 'ADMIN', new_admin_path, :method => "get" %>
+  <%= link_to 'Logged In [click to logout]', destroy_admin_session_path, :method => :delete %>
+
+<% end %>
+
+
+
+
+<h2>Are u a Donor ? Then click on Donor</h2>
+<%= button_to"Donor", new_donor_path, :method=>"get"%><br>
+<h2>Are u a Recipient ? Then click on Recipient</h2>
+<%= button_to"Recipient", new_recipient_path, :method=>"get"%><br>
+<% if user_signed_in? %>
+  <p>Welcome <%= current_user.email %></p>
+  <%= link_to 'Logged In [click to logout]', destroy_user_session_path, :method => :delete %>
+<% else %>
+  <p>You are not signed in.</p>
+  <%= link_to 'Login', new_user_session_path %>
+<% end %>
+<style>
+    h1
+    {
+      padding: 3px 5px 5px 3px; 
+    border: 1px solid red;
+    	position: relative;
+    	top: 65%;
+    	left: 15%;
+    	right: 45%;
+    	color: blue;
+    }
+    h2:hover {
+    color: #FF00FF;
+}
+</style>
